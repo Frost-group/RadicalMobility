@@ -1,16 +1,20 @@
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
 
-def read_xyz(file_path):
+def read_mol(file_path):
     atoms = []
     coordinates = []
 
     with open(file_path, 'r') as file:
-        lines = file.readlines()[2:]  # Skip first two lines (atom count and comment)
-        for line in lines:
-            parts = line.split()
-            atom = parts[0]
-            x, y, z = map(float, parts[1:])
+        lines = file.readlines()
+        
+        atom_count = int(lines[3][0:3].strip())
+        bond_count = int(lines[3][3:6].strip())
+        
+        for i in range(4, 4 + atom_count):
+            parts = lines[i].split()
+            x, y, z = map(float, parts[:3])
+            atom = parts[3]
             atoms.append(atom)
             coordinates.append([x, y, z])
     
@@ -37,13 +41,37 @@ def identify_fragments(atoms, coordinates, bond_threshold=1.5):
 
     return fragments
 
+def format_fragment_indices(indices):
+    ranges = []
+    start = indices[0]
+    end = indices[0]
+
+    for i in range(1, len(indices)):
+        if indices[i] == end + 1:
+            end = indices[i]
+        else:
+            if start == end:
+                ranges.append(f"{start}")
+            else:
+                ranges.append(f"{start}-{end}")
+            start = indices[i]
+            end = indices[i]
+    
+    if start == end:
+        ranges.append(f"{start}")
+    else:
+        ranges.append(f"{start}-{end}")
+    
+    return ", ".join(ranges)
+
 def print_fragments(fragments, atoms):
     for i, fragment in enumerate(fragments):
-        fragment_atoms = [f"{atoms[idx]}({idx + 1})" for idx in fragment]  # +1 for 1-based index
-        print(f"Fragment {i + 1}: {', '.join(fragment_atoms)}")
+        fragment_indices = sorted([idx + 1 for idx in fragment]) 
+        formatted_indices = format_fragment_indices(fragment_indices)
+        fragment_atoms = [atoms[idx] for idx in fragment]
+        print(f"Fragment {i + 1}: {formatted_indices} ({', '.join(fragment_atoms)})")
 
-# Usage
-xyz_file = 'untitled.xyz'  # Replace with your actual .xyz file path
-atoms, coordinates = read_xyz(xyz_file)
+mol_file = 'opt_radical_stacked_dimer_blatter1.mol'  
+atoms, coordinates = read_mol(mol_file)
 fragments = identify_fragments(atoms, coordinates)
 print_fragments(fragments, atoms)
