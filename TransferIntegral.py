@@ -1,7 +1,7 @@
 import subprocess
 
 def calculate_transfer_integral(xyz_file):
-    result = subprocess.run(['xtb', xyz_file, '--dipro', '--gfn', '1', '--chrg', '0', '--blatter1.UHFfrag'], 
+    result = subprocess.run(['xtb', xyz_file, '--dipro', '0.3', '--gfn', '1', '--chrg', '0', 'uhf', '2'], 
                                 check=True, capture_output=True, text=True)
     for line in result.stdout.splitlines():
         if 'total |J(AB,eff)| for charge transfer (CT)' in line:

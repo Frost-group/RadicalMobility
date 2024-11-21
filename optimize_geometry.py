@@ -15,7 +15,7 @@ def determine_charge_multiplicity(state):
 
 def optimize_geometry(input_xyz_file, output_xyz_file, charge, multiplicity, log_file):
     with open(log_file, 'w') as log:
-        subprocess.run(['xtb', input_xyz_file, '--opt', '--gfn2', '--chrg', str(charge), '--uhf', str(multiplicity-1), '--tight'], check=True, stdout=log, stderr=log)
+        subprocess.run(['xtb', input_xyz_file, '--opt', '--gfn2', '--chrg', str(charge), '--uhf', str(multiplicity-1), '--vtight'], check=True, stdout=log, stderr=log)
     subprocess.run(['cp', 'xtbopt.mol', output_xyz_file], check=True)
     return output_xyz_file
 
