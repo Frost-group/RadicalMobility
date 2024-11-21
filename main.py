@@ -51,15 +51,15 @@ def calculate_reorganization_energy(neutral_file, anion_file, cation_file, log_f
     conversion_factor = 27.2114
     with open(log_file_path, 'a') as log:
         log.write(f"Calculating reorganization energy\n")
-        E_neutral_optimized = calculate_single_molecule_energy(neutral_file, 0, 2, log_file_path)
-        E_anion_optimized = calculate_single_molecule_energy(anion_file, -1, 1, log_file_path)
-        E_neutral_in_anion_geom = calculate_single_molecule_energy(anion_file, 0, 1, log_file_path)
-        E_anion_in_neutral_geom = calculate_single_molecule_energy(neutral_file, -1, 2, log_file_path)
+        E_neutral_optimized = calculate_single_molecule_energy(neutral_file, radical_monomer_charge, radical_monomer_multiplicity, log_file_path)
+        E_anion_optimized = calculate_single_molecule_energy(anion_file, anion_monomer_charge, anion_monomer_multiplicity, log_file_path)
+        E_neutral_in_anion_geom = calculate_single_molecule_energy(anion_file, radical_monomer_charge, anion_monomer_multiplicity, log_file_path)
+        E_anion_in_neutral_geom = calculate_single_molecule_energy(neutral_file, anion_monomer_charge, radical_monomer_multiplicity, log_file_path)
         reorg_energy_electron_hartree = (E_neutral_in_anion_geom - E_neutral_optimized) + (E_anion_in_neutral_geom - E_anion_optimized)
         reorg_energy_electron_eV = reorg_energy_electron_hartree * conversion_factor
-        E_cation_optimized = calculate_single_molecule_energy(cation_file, 1, 1, log_file_path)
-        E_neutral_in_cation_geom = calculate_single_molecule_energy(cation_file, 0, 1, log_file_path)
-        E_cation_in_neutral_geom = calculate_single_molecule_energy(neutral_file, 1, 2, log_file_path)
+        E_cation_optimized = calculate_single_molecule_energy(cation_file,cation_monomer_charge, cation_monomer_multiplicity, log_file_path)
+        E_neutral_in_cation_geom = calculate_single_molecule_energy(cation_file, radical_monomer_charge, cation_monomer_multiplicity, log_file_path)
+        E_cation_in_neutral_geom = calculate_single_molecule_energy(neutral_file, cation_monomer_charge, radical_monomer_multiplicity, log_file_path)
         reorg_energy_hole_hartree = (E_neutral_in_cation_geom - E_neutral_optimized) + (E_cation_in_neutral_geom - E_cation_optimized)
         reorg_energy_hole_eV = reorg_energy_hole_hartree * conversion_factor
     return reorg_energy_electron_eV, reorg_energy_hole_eV
@@ -123,7 +123,7 @@ def calculate_transfer_integral(xyz_file, charge, multiplicity, log_file_path):
 
 
 if __name__ == "__main__":
-    input_mol_file = "Base3CO2Me.mol"  # Changed to .xyz
+    input_mol_file = "Base3tBu.mol"  # Changed to .xyz
     
     radical_monomer_charge = 0
     radical_monomer_multiplicity = 2
