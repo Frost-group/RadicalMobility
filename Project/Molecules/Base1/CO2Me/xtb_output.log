@@ -1,0 +1,468 @@
+Switching to the target directory: /rds/general/user/jh121/home
+      -----------------------------------------------------------      
+     |                   =====================                   |     
+     |                           x T B                           |     
+     |                   =====================                   |     
+     |                         S. Grimme                         |     
+     |          Mulliken Center for Theoretical Chemistry        |     
+     |                    University of Bonn                     |     
+      -----------------------------------------------------------      
+
+   * xtb version 6.7.1 (e39b5caab37b6b02cc63592a8acff14952ad5266) compiled by '@Linux' on 2024/10/29
+
+   xtb is free software: you can redistribute it and/or modify it under
+   the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   xtb is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   
+   Cite this work as:
+   * C. Bannwarth, E. Caldeweyher, S. Ehlert, A. Hansen, P. Pracht,
+     J. Seibert, S. Spicher, S. Grimme, WIREs Comput. Mol. Sci., 2020, 11,
+     e01493. DOI: 10.1002/wcms.1493
+   
+   for GFN2-xTB:
+   * C. Bannwarth, S. Ehlert and S. Grimme., J. Chem. Theory Comput., 2019,
+     15, 1652-1671. DOI: 10.1021/acs.jctc.8b01176
+   for GFN1-xTB:
+   * S. Grimme, C. Bannwarth, P. Shushkov, J. Chem. Theory Comput., 2017,
+     13, 1989-2009. DOI: 10.1021/acs.jctc.7b00118
+   for GFN0-xTB:
+   * P. Pracht, E. Caldeweyher, S. Ehlert, S. Grimme, ChemRxiv, 2019, preprint.
+     DOI: 10.26434/chemrxiv.8326202.v1
+   for GFN-FF:
+   * S. Spicher and S. Grimme, Angew. Chem. Int. Ed., 2020, 59, 15665-15673.
+     DOI: 10.1002/anie.202004239
+   
+   for ALPB and GBSA implicit solvation:
+   * S. Ehlert, M. Stahn, S. Spicher, S. Grimme, J. Chem. Theory Comput.,
+     2021, 17, 4250-4261. DOI: 10.1021/acs.jctc.1c00471
+   
+   for ddCOSMO and CPCM-X implicit solvation:
+   * M. Stahn, S. Ehlert, S. Grimme, J. Phys. Chem. A,
+     2023, XX, XXXX-XXXX. DOI: 10.1021/acs.jpca.3c04382
+   
+   for DFT-D4:
+   * E. Caldeweyher, C. Bannwarth and S. Grimme, J. Chem. Phys., 2017,
+     147, 034112. DOI: 10.1063/1.4993215
+   * E. Caldeweyher, S. Ehlert, A. Hansen, H. Neugebauer, S. Spicher,
+     C. Bannwarth and S. Grimme, J. Chem. Phys., 2019, 150, 154122.
+     DOI: 10.1063/1.5090222
+   * E. Caldeweyher, J.-M. Mewes, S. Ehlert and S. Grimme, Phys. Chem. Chem. Phys.
+     2020, 22, 8499-8512. DOI: 10.1039/D0CP00502A
+   
+   for sTDA-xTB:
+   * S. Grimme and C. Bannwarth, J. Chem. Phys., 2016, 145, 054103.
+     DOI: 10.1063/1.4959605
+   
+   in the mass-spec context:
+   * V. Asgeirsson, C. Bauer and S. Grimme, Chem. Sci., 2017, 8, 4879.
+     DOI: 10.1039/c7sc00601b
+   * J. Koopman and S. Grimme, ACS Omega 2019, 4, 12, 15120-15133.
+     DOI: 10.1021/acsomega.9b02011
+   
+   for metadynamics refer to:
+   * S. Grimme, J. Chem. Theory Comput., 2019, 155, 2847-2862
+     DOI: 10.1021/acs.jctc.9b00143
+   
+   for SPH calculations refer to:
+   * S. Spicher and S. Grimme, J. Chem. Theory Comput., 2021, 17, 1701-1714
+     DOI: 10.1021/acs.jctc.0c01306
+   
+   for ONIOM refer to:
+   * C. Plett, A. Katbashev, S. Ehlert, S. Grimme, M. Bursch,
+     Phys. Chem. Chem. Phys., 2023, 25, 17860-17868. DOI: 10.1039/D3CP02178E
+   
+   for DIPRO refer to:
+   * J. Kohn, N. Gildemeister, S. Grimme, D. Fazzi, A. Hansen,
+     J. Chem. Phys., 2023, just accepted.
+   
+   for PTB refer to:
+   * S. Grimme, M. Mueller, A. Hansen, J. Chem. Phys., 2023, 158, 124111.
+     DOI: 10.1063/5.0137838
+   
+   with help from (in alphabetical order)
+   P. Atkinson, C. Bannwarth, F. Bohle, G. Brandenburg, E. Caldeweyher
+   M. Checinski, S. Dohm, S. Ehlert, S. Ehrlich, I. Gerasimov, C. Hölzer
+   A. Katbashev, J. Kohn, J. Koopman, C. Lavigne, S. Lehtola, F. März, M. Müller,
+   F. Musil, H. Neugebauer, J. Pisarek, C. Plett, P. Pracht, F. Pultar,
+   J. Seibert, P. Shushkov, S. Spicher, M. Stahn, M. Steiner, T. Strunk,
+   J. Stückrath, T. Rose, and J. Unsleber
+   
+ * started run on 2024/10/31 at 14:02:54.819     
+   ID    Z sym.   atoms
+    1    6 C      1-9, 11, 12, 14-21, 24-35, 37, 38, 40-47, 50-52, 56, 58,
+                  62, 65, 68, 71, 102-110, 112, 113, 115-122, 125-136, 138,
+                  139, 141-148, 151-153, 157, 159, 163, 166, 169, 172
+    2    7 N      10, 13, 36, 39, 111, 114, 137, 140
+    3    8 O      22, 23, 48, 49, 54, 55, 57, 59-61, 63, 64, 66, 67, 69, 70,
+                  123, 124, 149, 150, 155, 156, 158, 160-162, 164, 165, 167,
+                  168, 170, 171
+    4    5 B      53, 154
+    5    1 H      72-101, 173-202
+
+           -------------------------------------------------
+          |                Calculation Setup                |
+           -------------------------------------------------
+
+          program call               : /rds/general/user/jh121/home/xtb_install/bin/xtb opt_radical_stacked_dimer_Base1CO2Me.mol --dipro --chrg 0 --uhf 2 --input fragments.xcontrol
+          hostname                   : cx3-12-6.cx3.hpc.ic.ac.uk
+          coordinate file            : opt_radical_stacked_dimer_Base1CO2Me.mol
+          omp threads                :                     1
+
+
+molecular fragmentation (1/2 indicates fragments):
+111111111111111111111111111111111111111111111111111111111111111111111111
+111111111111111111111111111111222222222222222222222222222222222222222222
+2222222222222222222222222222222222222222222222222222222222
+# atoms in fragment 1/2:   102   102
+ fragment masses (1/2) :      965.61      941.59
+CMA distance (Bohr)    :   8.782
+constraining FC (au)   :  0.0500
+
+           -------------------------------------------------
+          |                 G F N 2 - x T B                 |
+           -------------------------------------------------
+
+        Reference                      10.1021/acs.jctc.8b01176
+      * Hamiltonian:
+        H0-scaling (s, p, d)           1.850000    2.230000    2.230000
+        zeta-weighting                 0.500000
+      * Dispersion:
+        s8                             2.700000
+        a1                             0.520000
+        a2                             5.000000
+        s9                             5.000000
+      * Repulsion:
+        kExp                           1.500000    1.000000
+        rExp                           1.000000
+      * Coulomb:
+        alpha                          2.000000
+        third order                    shell-resolved
+        anisotropic                    true
+        a3                             3.000000
+        a5                             4.000000
+        cn-shift                       1.200000
+        cn-exp                         4.000000
+        max-rad                        5.000000
+
+           -------------------------------------------------
+          |                    D I P R O                    |
+           -------------------------------------------------
+Calculation for dimer 
+--------------------- 
+  
+charge of dimer :   0.
+unpaired e- of dimer :  2
+repulsion energy          5.0316964039384E+00 Eh
+dispersion energy         3.0569558460110E-02 Eh
+number of electrons       6.9800000000000E+02 e
+integral cutoff           1.9311100799991E+01 bohr
+
+------------------------------------------------------------
+  cycle        total energy    energy error   density error
+------------------------------------------------------------
+      1     -397.7266248137  -4.0278889E+02   2.1997756E-01
+      2     -400.5916679397  -2.8650431E+00   1.0123349E-01
+      3     -399.1945594196   1.3971085E+00   7.1898411E-02
+      4     -386.1066954054   1.3087864E+01   1.0516880E-01
+      5     -395.8453953937  -9.7387000E+00   7.3524120E-02
+      6     -400.7948792181  -4.9494838E+00   3.7320618E-02
+      7     -400.8254515797  -3.0572362E-02   2.7382127E-02
+      8     -401.1104763146  -2.8502473E-01   2.1766285E-02
+      9     -401.1151230930  -4.6467784E-03   1.7896123E-02
+     10     -401.1811524220  -6.6029329E-02   1.4454721E-02
+     11     -401.1923109210  -1.1158499E-02   1.2795027E-02
+     12     -401.2232981489  -3.0987228E-02   8.1487256E-03
+     13     -401.2456409838  -2.2342835E-02   5.5878984E-03
+     14     -401.2507589237  -5.1179399E-03   3.4593278E-03
+     15     -401.2520263487  -1.2674250E-03   3.5237014E-03
+     16     -401.2558946742  -3.8683255E-03   2.3708788E-03
+     17     -401.2564422177  -5.4754354E-04   1.4213928E-03
+     18     -401.2566229032  -1.8068548E-04   1.2131710E-03
+     19     -401.2570666847  -4.4378148E-04   5.7510335E-04
+     20     -401.2571516551  -8.4970447E-05   2.4124182E-04
+     21     -401.2571342683   1.7386780E-05   2.6657550E-04
+     22     -401.2571654503  -3.1181937E-05   7.5917027E-05
+     23     -401.2571665141  -1.0638518E-06   4.1887818E-05
+     24     -401.2571668365  -3.2235448E-07   2.4695954E-05
+     25     -401.2571669869  -1.5041536E-07   1.5495150E-05
+------------------------------------------------------------
+
+electronic energy        -4.0631943294929E+02 Eh
+total energy             -4.0125716698689E+02 Eh
+
+ total:                                   3.996 sec
+ - repulsion                              0.002 sec (  0%)
+ - dispersion                             0.102 sec (  2%)
+ - coulomb                                0.021 sec (  0%)
+ - hamiltonian                            0.097 sec (  2%)
+ - scc                                    3.773 sec ( 94%)
+
+Found 2 fragments!
+Fragment 1:  1-102
+Fragment 2:  103-202
+
+[Info] Fragment spin read from .UHFfrag
+Calculation for fragment 1
+ ------------------------------
+   
+charge of fragment :   0.
+unpaired e- of fragment :  1
+------------------------------------------------------------
+  cycle        total energy    energy error   density error
+------------------------------------------------------------
+      1     -198.8413020965  -2.0134690E+02   2.3850075E-01
+      2     -197.5386002987   1.3027018E+00   1.8026496E-01
+      3     -196.6150123620   9.2358794E-01   1.2681497E-01
+      4     -197.1219710835  -5.0695872E-01   1.3054031E-01
+      5     -198.4743308601  -1.3523598E+00   9.7020697E-02
+      6     -200.4193209181  -1.9449901E+00   9.6462326E-02
+      7     -200.4568763694  -3.7555451E-02   8.8682327E-02
+      8     -200.4800785958  -2.3202226E-02   8.5353197E-02
+      9     -198.5475346605   1.9325439E+00   1.2323425E-01
+     10     -198.3741418645   1.7339280E-01   1.2350006E-01
+     11     -200.4270302840  -2.0528884E+00   7.4163483E-02
+     12     -198.5915024640   1.8355278E+00   1.2374995E-01
+     13     -202.1146639210  -3.5231615E+00   3.0051593E-02
+     14     -202.1985218225  -8.3857902E-02   2.4307699E-02
+     15     -202.0249927811   1.7352904E-01   3.3585575E-02
+     16     -198.8650052006   3.1599876E+00   1.1794796E-01
+     17     -201.5918308859  -2.7268257E+00   4.9395926E-02
+     18     -201.9778512241  -3.8602034E-01   3.1203352E-02
+     19     -201.6666982832   3.1115294E-01   4.6761530E-02
+     20     -200.6164807073   1.0502176E+00   6.7940714E-02
+     21     -200.8293273651  -2.1284666E-01   7.2909596E-02
+     22     -202.3135789434  -1.4842516E+00   5.3821432E-03
+     23     -202.0722230784   2.4135586E-01   2.9548223E-02
+     24     -202.3007631916  -2.2854011E-01   9.1041899E-03
+     25     -202.0431421418   2.5762105E-01   3.0780106E-02
+     26     -202.0673182278  -2.4176086E-02   2.9191694E-02
+     27     -202.1260657357  -5.8747508E-02   2.5416745E-02
+     28     -201.6387715306   4.8729421E-01   4.2717818E-02
+     29     -202.2669206800  -6.2814915E-01   1.2255085E-02
+     30     -202.3150897932  -4.8169113E-02   4.4107727E-03
+     31     -202.2406388215   7.4450972E-02   1.5008829E-02
+     32     -202.2596240058  -1.8985184E-02   1.3830566E-02
+     33     -202.3140307379  -5.4406732E-02   3.9865289E-03
+     34     -202.2947675154   1.9263222E-02   8.6938308E-03
+     35     -202.3103827852  -1.5615270E-02   5.1497117E-03
+     36     -202.3187343848  -8.3515996E-03   1.3419819E-03
+     37     -202.3148280182   3.9063665E-03   3.7148402E-03
+     38     -202.3187612113  -3.9331931E-03   1.2315739E-03
+     39     -202.3191175474  -3.5633604E-04   5.8406408E-04
+     40     -202.3191574041  -3.9856736E-05   3.8339573E-04
+     41     -202.3191847079  -2.7303845E-05   2.6737877E-04
+     42     -202.3190603427   1.2436530E-04   6.8731676E-04
+     43     -202.3191378850  -7.7542385E-05   4.5872972E-04
+     44     -202.3191596981  -2.1813061E-05   3.6079211E-04
+     45     -202.3191883774  -2.8679267E-05   1.6255177E-04
+     46     -202.3191921679  -3.7905540E-06   8.0361095E-05
+     47     -202.3191926925  -5.2461255E-07   6.8853018E-05
+     48     -202.3191936061  -9.1360602E-07   2.7631719E-05
+     49     -202.3191936969  -9.0754583E-08   1.1436583E-05
+------------------------------------------------------------
+
+ total:                                   1.538 sec
+Calculation for fragment 2
+ ------------------------------
+   
+charge of fragment :   0.
+unpaired e- of fragment :  1
+------------------------------------------------------------
+  cycle        total energy    energy error   density error
+------------------------------------------------------------
+      1     -196.1178778131  -1.9854824E+02   2.2374092E-01
+      2     -193.6996250573   2.4182528E+00   1.5230246E-01
+      3     -184.6209559208   9.0786691E+00   1.7002271E-01
+      4     -192.7713545079  -8.1503986E+00   1.1589214E-01
+      5     -196.0689544949  -3.2976000E+00   8.0098339E-02
+      6     -197.9081125769  -1.8391581E+00   5.1829728E-02
+      7     -198.0429404943  -1.3482792E-01   3.6399959E-02
+      8     -198.0978813534  -5.4940859E-02   2.7403554E-02
+      9     -198.0551808957   4.2700458E-02   2.1454848E-02
+     10     -198.0891697893  -3.3988894E-02   2.1686332E-02
+     11     -198.1598196706  -7.0649881E-02   9.2668972E-03
+     12     -198.0923331669   6.7486504E-02   1.8757713E-02
+     13     -198.1688335699  -7.6500403E-02   5.1278381E-03
+     14     -198.1464193438   2.2414226E-02   1.0727408E-02
+     15     -198.1639641601  -1.7544816E-02   5.6211054E-03
+     16     -198.1712668186  -7.3026585E-03   1.1843211E-03
+     17     -198.1713683990  -1.0158047E-04   4.7324223E-04
+     18     -198.1713557510   1.2647995E-05   4.9856942E-04
+     19     -198.1713751790  -1.9427919E-05   3.3688561E-04
+     20     -198.1713996670  -2.4488017E-05   1.0944304E-04
+     21     -198.1714019076  -2.2406157E-06   3.9147075E-05
+     22     -198.1714022323  -3.2473139E-07   1.9565041E-05
+------------------------------------------------------------
+
+ total:                                   0.718 sec
+   
+   ::::::::::::::::::::::::::::::::::::::::::::::
+   ::     D I P R O      C O U P L I N G S     ::
+   ::::::::::::::::::::::::::::::::::::::::::::::
+   
+energy threshhold for near-degenerate orbitals near HOMO and LUMO considered for DIPRO:  0.100 eV
+no. of orbitals within energy window of frag 1         5
+no. of orbitals within energy window of frag 2         4
+   
+  Fragment 1 SOMO   Fragment 2 SOMO-1
+--------------------------------------
+E_mon(orb) frag1 frag2             -10.332   -10.651 eV
+J(AB):               -0.018 eV
+S(AB):             0.00035879 Eh
+|J(AB,eff)|:            0.015 eV
+   
+  Fragment 1 SOMO   Fragment 2 SOMO 
+--------------------------------------
+E_mon(orb) frag1 frag2             -10.332   -10.344 eV
+J(AB):               -0.436 eV
+S(AB):             0.01843192 Eh
+|J(AB,eff)|:            0.245 eV
+   
+  Fragment 1 SOMO   Fragment 2 LUMO 
+--------------------------------------
+E_mon(orb) frag1 frag2             -10.332   -10.232 eV
+J(AB):               -0.027 eV
+S(AB):             0.00253319 Eh
+|J(AB,eff)|:            0.000 eV
+   
+  Fragment 1 SOMO   Fragment 2 LUMO+1
+--------------------------------------
+E_mon(orb) frag1 frag2             -10.332    -8.923 eV
+J(AB):               -4.339 eV
+S(AB):             0.20428520 Eh
+|J(AB,eff)|:            2.475 eV
+   
+  Fragment 1 LUMO   Fragment 2 SOMO-1
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.698   -10.651 eV
+J(AB):                0.211 eV
+S(AB):            -0.00912776 Eh
+|J(AB,eff)|:            0.118 eV
+   
+  Fragment 1 LUMO   Fragment 2 SOMO 
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.698   -10.344 eV
+J(AB):                0.395 eV
+S(AB):            -0.01768412 Eh
+|J(AB,eff)|:            0.218 eV
+   
+  Fragment 1 LUMO   Fragment 2 LUMO 
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.698   -10.232 eV
+J(AB):                0.041 eV
+S(AB):            -0.00237105 Eh
+|J(AB,eff)|:            0.018 eV
+   
+  Fragment 1 LUMO   Fragment 2 LUMO+1
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.698    -8.923 eV
+J(AB):               -2.736 eV
+S(AB):             0.11029036 Eh
+|J(AB,eff)|:            1.730 eV
+   
+  Fragment 1 LUMO+1  Fragment 2 SOMO-1
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.912   -10.651 eV
+J(AB):               -0.218 eV
+S(AB):             0.00977314 Eh
+|J(AB,eff)|:            0.117 eV
+   
+  Fragment 1 LUMO+1  Fragment 2 SOMO 
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.912   -10.344 eV
+J(AB):               -0.175 eV
+S(AB):             0.00679398 Eh
+|J(AB,eff)|:            0.106 eV
+   
+  Fragment 1 LUMO+1  Fragment 2 LUMO 
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.912   -10.232 eV
+J(AB):                0.557 eV
+S(AB):            -0.02577333 Eh
+|J(AB,eff)|:            0.298 eV
+   
+  Fragment 1 LUMO+1  Fragment 2 LUMO+1
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.912    -8.923 eV
+J(AB):                9.938 eV
+S(AB):            -0.46673206 Eh
+|J(AB,eff)|:            7.087 eV
+   
+  Fragment 1 LUMO+2  Fragment 2 SOMO-1
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.839   -10.651 eV
+J(AB):                0.295 eV
+S(AB):            -0.01340266 Eh
+|J(AB,eff)|:            0.158 eV
+   
+  Fragment 1 LUMO+2  Fragment 2 SOMO 
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.839   -10.344 eV
+J(AB):                1.452 eV
+S(AB):            -0.06519098 Eh
+|J(AB,eff)|:            0.798 eV
+   
+  Fragment 1 LUMO+2  Fragment 2 LUMO 
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.839   -10.232 eV
+J(AB):               -0.667 eV
+S(AB):             0.03029156 Eh
+|J(AB,eff)|:            0.363 eV
+   
+  Fragment 1 LUMO+2  Fragment 2 LUMO+1
+--------------------------------------
+E_mon(orb) frag1 frag2              -9.839    -8.923 eV
+J(AB):               -2.404 eV
+S(AB):             0.11282813 Eh
+|J(AB,eff)|:            1.363 eV
+   
+  Fragment 1 LUMO+3  Fragment 2 SOMO-1
+--------------------------------------
+E_mon(orb) frag1 frag2             -10.318   -10.651 eV
+J(AB):               -0.068 eV
+S(AB):             0.00267661 Eh
+|J(AB,eff)|:            0.040 eV
+   
+  Fragment 1 LUMO+3  Fragment 2 SOMO 
+--------------------------------------
+E_mon(orb) frag1 frag2             -10.318   -10.344 eV
+J(AB):               -0.150 eV
+S(AB):             0.00552621 Eh
+|J(AB,eff)|:            0.093 eV
+   
+  Fragment 1 LUMO+3  Fragment 2 LUMO 
+--------------------------------------
+E_mon(orb) frag1 frag2             -10.318   -10.232 eV
+J(AB):                0.045 eV
+S(AB):            -0.00183538 Eh
+|J(AB,eff)|:            0.026 eV
+   
+  Fragment 1 LUMO+3  Fragment 2 LUMO+1
+--------------------------------------
+E_mon(orb) frag1 frag2             -10.318    -8.923 eV
+J(AB):                0.176 eV
+S(AB):            -0.00870275 Eh
+|J(AB,eff)|:            0.092 eV
+   
+..............................................................................
+:  total |J(AB,eff)| for hole transport (occ. MOs) :               0.245 eV  :
+:  total |J(AB,eff)| for charge transport (unocc. MOs) :           7.437 eV  :
+:  total |J(AB,eff)| for charge transfer (CT) :                    2.624 eV  :
+..............................................................................
+  
+ Please remember, DIPRO is not available for restart!
+   
+normal termination of dipro
+----------------------------------------------------------
+ * finished run on 2024/10/31 at 14:03:01.311     
+----------------------------------------------------------
+ dipro:
+ * wall-time:     0 d,  0 h,  0 min,  6.360 sec
+ *  cpu-time:     0 d,  0 h,  0 min,  6.324 sec
+ * ratio c/w:     0.994 speedup
