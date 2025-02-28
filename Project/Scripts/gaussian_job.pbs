@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N gaussian_job
+#PBS -l select=1:ncpus=16:mem=32gb
+#PBS -l walltime=10:00:00
+#PBS -j oe
+#PBS -o gaussian_output.log
+
+module load gaussian/g09-c01
+
+cd $PBS_O_WORKDIR
+
+g09 < Base3CO2Me.com > my_gaussian_output.log

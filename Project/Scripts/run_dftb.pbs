@@ -1,0 +1,79 @@
+#!/bin/bash
+#PBS -N dftb_xtb_annealing
+#PBS -l select=1:ncpus=64:mem=256gb
+#PBS -l walltime=48:00:00
+#PBS -j oe
+#PBS -m abe
+
+# Load required modules (Modify based on your HPC setup)
+module load miniforge/3  
+eval "$(~/miniforge3/bin/conda shell.bash hook)"   
+
+# Activate your Conda environment
+source /rds/general/user/jh121/home/miniforge3/bin/activate xtb_env
+
+# Navigate to the working directory
+cd $PBS_O_WORKDIR
+
+# Export xTB Parameters
+export XTBPATH="/rds/general/user/jh121/home/miniforge3/envs/xtb_env/share/xtb"
+export XTBPARAM=$XTBPATH
+export DFTB_PREFIX=$XTBPATH
+
+# Create a directory for results
+mkdir -p results
+
+# Set number of annealing cycles
+NUM_CYCLES=10
+
+# Initial input file
+INPUT_FILE="dftb_in.hsd"
+TRAJ_FILE="geo_end.xyz"  # FIXED: Changed from `md.out.xyz` to `geo_end.xyz`
+DETAILED_OUT="detailed.out"  # Stores detailed energies
+ENERGY_FILE="energy_log.txt"  # May still contain extra energy values
+
+# Run the loop
+for i in $(seq 1 $NUM_CYCLES); do
+    echo "Starting simulated annealing cycle $i..."
+
+    # Run DFTB+
+    dftb+ > "results/output_${i}.log"
+
+    # Check if the simulation produced the final structure
+    if [ ! -f "$TRAJ_FILE" ]; then
+        echo "ERROR: No final geometry file (`geo_end.xyz`) found after cycle $i. Exiting!"
+        exit 1
+    fi
+
+    # Save the final structure
+    cp "$TRAJ_FILE" "results/trajectory_${i}.xyz"
+
+    # Extract energy values from `detailed.out`
+    if [ -f "$DETAILED_OUT" ]; then
+        TOTAL_ENERGY=$(grep "Total energy:" "$DETAILED_OUT" | tail -1 | awk '{print $(NF-1)}')
+        KINETIC_ENERGY=$(grep "MD Kinetic Energy:" "$DETAILED_OUT" | tail -1 | awk '{print $(NF-1)}')
+        TEMPERATURE=$(grep "MD Temperature:" "$DETAILED_OUT" | tail -1 | awk '{print $(NF-1)}')
+
+        # Append to energy summary file
+        echo "Cycle $i: Total Energy = $TOTAL_ENERGY H, Kinetic Energy = $KINETIC_ENERGY H, Temperature = $TEMPERATURE K" >> "results/energy_summary.txt"
+    else
+        echo "Warning: `detailed.out` not found for cycle $i. Skipping energy extraction."
+    fi
+
+    # Use last frame as new starting geometry for next cycle
+    tail -n 77 "$TRAJ_FILE" > next_geometry.xyz  # Adjust for atom count
+    echo "Geometry updated for next cycle."
+
+    # Update `dftb_in.hsd` to use the last frame
+    sed -i '/Geometry = GenFormat/,/}/c\
+Geometry = xyzFormat {\
+  <<< "next_geometry.xyz"\
+}' "$INPUT_FILE"
+
+    echo "Cycle $i completed."
+done
+
+echo "All $NUM_CYCLES cycles finished!"
+
+# Copy final results back to the working directory
+cp results/* $PBS_O_WORKDIR/

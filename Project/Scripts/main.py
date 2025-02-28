@@ -23,7 +23,7 @@ def optimize_geometry(input_mol_file, output_mol_file, charge, uhf, log_file_pat
         subprocess.run(['cp', 'xtbopt.mol', output_mol_file], check=True)
     return output_mol_file
 
-def optimize_geometry_gfnff(input_xyz_file, output_mol_file, charge, log_file_path):
+def optimize_geometry_gfnff(input_xyz_file, output_mol_file, charge, log_file_path):s
     with open(log_file_path, 'a') as log:
         log.write(f"Optimizing {input_xyz_file} using GFNFF\n")
         subprocess.run(['xtb', input_xyz_file, '--opt', '--gfnff', '--chrg', str(charge)], 
