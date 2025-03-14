@@ -1,0 +1,252 @@
+      -----------------------------------------------------------      
+     |                   =====================                   |     
+     |                           x T B                           |     
+     |                   =====================                   |     
+     |                         S. Grimme                         |     
+     |          Mulliken Center for Theoretical Chemistry        |     
+     |                    University of Bonn                     |     
+      -----------------------------------------------------------      
+
+   * xtb version 6.6.1 (8d0f1dd) compiled by 'runner@Mac-1690902418499.local' on 2023-08-01
+
+   xtb is free software: you can redistribute it and/or modify it under
+   the terms of the GNU Lesser General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   xtb is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU Lesser General Public License for more details.
+   
+   Cite this work as:
+   * C. Bannwarth, E. Caldeweyher, S. Ehlert, A. Hansen, P. Pracht,
+     J. Seibert, S. Spicher, S. Grimme, WIREs Comput. Mol. Sci., 2020, 11,
+     e01493. DOI: 10.1002/wcms.1493
+   
+   for GFN2-xTB:
+   * C. Bannwarth, S. Ehlert and S. Grimme., J. Chem. Theory Comput., 2019,
+     15, 1652-1671. DOI: 10.1021/acs.jctc.8b01176
+   for GFN1-xTB:
+   * S. Grimme, C. Bannwarth, P. Shushkov, J. Chem. Theory Comput., 2017,
+     13, 1989-2009. DOI: 10.1021/acs.jctc.7b00118
+   for GFN0-xTB:
+   * P. Pracht, E. Caldeweyher, S. Ehlert, S. Grimme, ChemRxiv, 2019, preprint.
+     DOI: 10.26434/chemrxiv.8326202.v1
+   for GFN-FF:
+   * S. Spicher and S. Grimme, Angew. Chem. Int. Ed., 2020, 59, 15665-15673.
+     DOI: 10.1002/anie.202004239
+   
+   for ALPB and GBSA implicit solvation:
+   * S. Ehlert, M. Stahn, S. Spicher, S. Grimme, J. Chem. Theory Comput.,
+     2021, 17, 4250-4261. DOI: 10.1021/acs.jctc.1c00471
+   
+   for DFT-D4:
+   * E. Caldeweyher, C. Bannwarth and S. Grimme, J. Chem. Phys., 2017,
+     147, 034112. DOI: 10.1063/1.4993215
+   * E. Caldeweyher, S. Ehlert, A. Hansen, H. Neugebauer, S. Spicher,
+     C. Bannwarth and S. Grimme, J. Chem. Phys., 2019, 150, 154122.
+     DOI: 10.1063/1.5090222
+   * E. Caldeweyher, J.-M. Mewes, S. Ehlert and S. Grimme, Phys. Chem. Chem. Phys.
+     2020, 22, 8499-8512. DOI: 10.1039/D0CP00502A
+   
+   for sTDA-xTB:
+   * S. Grimme and C. Bannwarth, J. Chem. Phys., 2016, 145, 054103.
+     DOI: 10.1063/1.4959605
+   
+   in the mass-spec context:
+   * V. Asgeirsson, C. Bauer and S. Grimme, Chem. Sci., 2017, 8, 4879.
+     DOI: 10.1039/c7sc00601b
+   * J. Koopman and S. Grimme, ACS Omega 2019, 4, 12, 15120-15133.
+     DOI: 10.1021/acsomega.9b02011
+   
+   for metadynamics refer to:
+   * S. Grimme, J. Chem. Theory Comput., 2019, 155, 2847-2862
+     DOI: 10.1021/acs.jctc.9b00143
+   
+   for SPH calculations refer to:
+   * S. Spicher and S. Grimme, J. Chem. Theory Comput., 2021, 17, 1701-1714
+     DOI: 10.1021/acs.jctc.0c01306
+   
+   with help from (in alphabetical order)
+   P. Atkinson, C. Bannwarth, F. Bohle, G. Brandenburg, E. Caldeweyher
+   M. Checinski, S. Dohm, S. Ehlert, S. Ehrlich, I. Gerasimov, C. Hölzer
+   A. Katbashev, J. Koopman, C. Lavigne, S. Lehtola, F. März, M. Müller,
+   F. Musil, H. Neugebauer, J. Pisarek, C. Plett, P. Pracht, F. Pultar,
+   J. Seibert, P. Shushkov, S. Spicher, M. Stahn, M. Steiner, T. Strunk,
+   J. Stückrath, T. Rose, and J. Unsleber
+   
+ * started run on 2025/03/14 at 12:49:10.051     
+
+           -------------------------------------------------
+          |                Calculation Setup                |
+           -------------------------------------------------
+
+          program call               : xtb scoord.19 --md --gfnff --input md_settings.inp
+          coordinate file            : scoord.19
+          omp threads                :                     8
+
+   ID    Z sym.   atoms
+    1    6 C      1-9, 11, 12, 14-21, 24, 25, 34, 35, 38, 41-43, 59-67, 69,
+                  70, 72-79, 82, 83, 92, 93, 96, 99-101
+    2    7 N      10, 13, 68, 71
+    3    8 O      22, 23, 32, 33, 36, 37, 39, 40, 80, 81, 90, 91, 94, 95, 97,
+                  98
+    4    1 H      26-31, 44-58, 84-89, 102-116
+
+molecular fragmentation (1/2 indicates fragments):
+111111111111111111111111111111111111111111111111111111111122222222222222
+22222222222222222222222222222222222222222222
+# atoms in fragment 1/2:    58    58
+ fragment masses (1/2) :      501.47      501.47
+CMA distance (Bohr)    :   7.891
+constraining FC (au)   :  0.0500
+          GFN-FF topology read from file successfully!
+           ------------------------------------------------- 
+          |                   G F N - F F                   |
+          |          A general generic force-field          |
+          |                  Version 1.0.3                  | 
+           ------------------------------------------------- 
+          Number of HB bonds (bound hydrogen)     20076
+          Number of HB bonds (unbound hydrogen)   527
+          Number of XB bonds                      0
+
+ E+G (total)                   0 d,  0 h,  0 min,  0.002 sec
+ distance/D3 list               ...        0 min,  0.000 sec (  1.090%)
+ non bonded repulsion           ...        0 min,  0.000 sec (  4.671%)
+ dCN                            ...        0 min,  0.000 sec (  6.063%)
+ EEQ energy and q               ...        0 min,  0.000 sec (  9.904%)
+ D3                             ...        0 min,  0.000 sec ( 15.935%)
+ EEQ gradient                   ...        0 min,  0.000 sec (  2.222%)
+ bonds                          ...        0 min,  0.000 sec (  7.412%)
+ bend and torsion               ...        0 min,  0.000 sec (  3.539%)
+ bonded ATM                     ...        0 min,  0.000 sec (  2.352%)
+ HB/XB (incl list setup)        ...        0 min,  0.001 sec ( 46.510%)
+
+         :::::::::::::::::::::::::::::::::::::::::::::::::::::
+         ::                     SUMMARY                     ::
+         :::::::::::::::::::::::::::::::::::::::::::::::::::::
+         :: total energy             -22.853319400722 Eh    ::
+         :: gradient norm              0.425219411243 Eh/a0 ::
+         ::.................................................::
+         :: bond energy              -23.534076741524 Eh    ::
+         :: angle energy               0.148217084348 Eh    ::
+         :: torsion energy             0.086679254984 Eh    ::
+         :: repulsion energy           1.579193994038 Eh    ::
+         :: electrostat energy        -0.946688355352 Eh    ::
+         :: dispersion energy         -0.155355574626 Eh    ::
+         :: HB energy                 -0.006832143588 Eh    ::
+         :: XB energy                  0.000000000000 Eh    ::
+         :: bonded atm energy         -0.024456919003 Eh    ::
+         :: external energy            0.000000000000 Eh    ::
+         :: add. restraining           0.000000000000 Eh    ::
+         :: total charge              -0.000000000000 e     ::
+         :::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+           -------------------------------------------------
+          |                Property Printout                |
+           -------------------------------------------------
+
+           -------------------------------------------------
+          | TOTAL ENERGY              -22.853319400722 Eh   |
+          | GRADIENT NORM               0.425219411243 Eh/α |
+           -------------------------------------------------
+           ------------------------------------------------- 
+          |               Molecular Dynamics                |
+           ------------------------------------------------- 
+ trajectories on xtb.trj or xtb.trj.<n>
+
+ MD time /ps        :   20.00
+ dt /fs             :    2.00
+ SCC accuracy       :    2.00
+ temperature /K     :  466.00
+ max steps          : 10000
+ block length (av.) :  2500
+ dumpstep(trj) /fs  :  500.00   250
+ dumpstep(coords)/fs: 1000.00   500
+ H atoms mass (amu) :     4
+ # deg. of freedom  :   348
+ SHAKE off
+ Berendsen THERMOSTAT on
+         time (ps)    <Epot>      Ekin   <T>   T     Etot
+      0    0.00      0.00000   0.5357    0.    0.   -22.31763
+est. speed in wall clock h for 100 ps :  0.02
+    200    0.40    -22.61985   0.3312  671.  601.   -22.42149
+    400    0.80    -22.69379   0.3005  636.  545.   -22.46639
+    600    1.20    -22.72581   0.2826  608.  513.   -22.51080
+    800    1.60    -22.74671   0.3103  588.  563.   -22.54307
+   1000    2.00    -22.76215   0.2613  572.  474.   -22.55739
+   1200    2.40    -22.77386   0.2725  560.  495.   -22.56370
+   1400    2.80    -22.78217   0.2612  548.  474.   -22.55506
+   1600    3.20    -22.78936   0.2515  540.  456.   -22.59501
+   1800    3.60    -22.79457   0.2724  532.  494.   -22.59016
+   2000    4.00    -22.79892   0.2757  526.  500.   -22.58555
+   2200    4.40    -22.80224   0.2694  520.  489.   -22.58405
+   2400    4.80    -22.80499   0.2569  515.  466.   -22.59113
+block <Epot> / <T> :     -22.81534  513.     drift:  0.99D+02   Tbath : 466.
+   2600    5.20    -22.80747   0.2473  512.  449.   -22.58190
+   2800    5.60    -22.80972   0.2652  509.  481.   -22.58471
+   3000    6.00    -22.81147   0.2619  506.  475.   -22.56131
+   3200    6.40    -22.81309   0.2616  503.  475.   -22.58214
+   3400    6.80    -22.81474   0.2434  501.  442.   -22.58113
+   3600    7.20    -22.81608   0.2534  499.  460.   -22.57878
+   3800    7.60    -22.81717   0.2629  497.  477.   -22.58229
+   4000    8.00    -22.81823   0.2287  496.  415.   -22.58584
+   4200    8.40    -22.81923   0.2325  494.  422.   -22.58514
+   4400    8.80    -22.82001   0.2649  493.  481.   -22.60282
+   4600    9.20    -22.82104   0.2563  492.  465.   -22.60189
+   4800    9.60    -22.82201   0.2616  491.  475.   -22.57721
+   5000   10.00    -22.82263   0.2655  490.  482.   -22.58034
+block <Epot> / <T> :     -22.83905  467.     drift:  0.99D+02   Tbath : 466.
+   5200   10.40    -22.82300   0.2689  489.  488.   -22.58565
+   5400   10.80    -22.82352   0.2791  488.  506.   -22.56854
+   5600   11.20    -22.82402   0.2477  487.  450.   -22.59044
+   5800   11.60    -22.82441   0.2435  486.  442.   -22.58864
+   6000   12.00    -22.82500   0.2528  486.  459.   -22.57324
+   6200   12.40    -22.82559   0.2462  486.  447.   -22.56099
+   6400   12.80    -22.82613   0.2574  485.  467.   -22.58311
+   6600   13.20    -22.82648   0.2713  484.  492.   -22.57995
+   6800   13.60    -22.82690   0.2431  484.  441.   -22.58194
+   7000   14.00    -22.82725   0.2676  483.  486.   -22.57288
+   7200   14.40    -22.82760   0.2522  483.  458.   -22.59445
+   7400   14.80    -22.82790   0.2380  482.  432.   -22.58071
+block <Epot> / <T> :     -22.83918  466.     drift:  0.99D+02   Tbath : 466.
+   7600   15.20    -22.82828   0.2980  482.  541.   -22.58486
+   7800   15.60    -22.82874   0.2720  482.  494.   -22.59432
+   8000   16.00    -22.82908   0.2499  481.  453.   -22.59905
+   8200   16.40    -22.82949   0.2455  481.  446.   -22.58018
+   8400   16.80    -22.82983   0.2444  481.  443.   -22.57446
+   8600   17.20    -22.83015   0.2588  480.  470.   -22.58947
+   8800   17.60    -22.83046   0.2558  480.  464.   -22.59886
+   9000   18.00    -22.83085   0.2548  480.  462.   -22.59955
+   9200   18.40    -22.83105   0.2319  479.  421.   -22.58745
+   9400   18.80    -22.83129   0.2799  479.  508.   -22.59480
+   9600   19.20    -22.83156   0.2356  479.  428.   -22.58499
+   9800   19.60    -22.83169   0.2722  478.  494.   -22.58802
+ average properties 
+ Epot               :  -22.831881363650012     
+ Epot (accurate SCC):  -22.834051200978234     
+ Ekin               :  0.26343587583490102     
+ Etot               :  -22.568445487815112     
+ T                  :   478.08361284123868     
+ thermostating problem
+ normal exit of md()
+
+------------------------------------------------------------------------
+ * finished run on 2025/03/14 at 12:49:26.475     
+------------------------------------------------------------------------
+ total:
+ * wall-time:     0 d,  0 h,  0 min, 16.423 sec
+ *  cpu-time:     0 d,  0 h,  0 min, 31.209 sec
+ * ratio c/w:     1.900 speedup
+ SCF:
+ * wall-time:     0 d,  0 h,  0 min,  0.003 sec
+ *  cpu-time:     0 d,  0 h,  0 min,  0.005 sec
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG
+normal termination of xtb
+ * ratio c/w:     1.734 speedup
+ MD:
+ * wall-time:     0 d,  0 h,  0 min, 16.412 sec
+ *  cpu-time:     0 d,  0 h,  0 min, 31.200 sec
+ * ratio c/w:     1.901 speedup
+
