@@ -7,7 +7,7 @@ import math
 def calculate_single_molecule_energy(optimized_xyz_file, charge, uhf, log_file_path):
     with open(log_file_path, 'a') as log:
         result = subprocess.run(
-            ['xtb', optimized_xyz_file, '--sp', '--chrg', str(charge), '--uhf', str(uhf), '--spinpol', '--tblite'], 
+            ['xtb', optimized_xyz_file, '--sp', '--chrg', str(charge), '--uhf', str(uhf), 'gfn 2'], 
             check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
         )
         log.write(result.stdout)
@@ -18,7 +18,7 @@ def calculate_single_molecule_energy(optimized_xyz_file, charge, uhf, log_file_p
 
 def optimize_geometry(input_mol_file, output_mol_file, charge, uhf, log_file_path):
     with open(log_file_path, 'a') as log:
-        subprocess.run(['xtb', input_mol_file, '--opt', 'tight', '--cycles', '500', '--chrg', str(charge), '--uhf', str(uhf), '--spinpol', '--tblite'], 
+        subprocess.run(['xtb', input_mol_file, '--opt', 'tight', '--cycles', '500', '--chrg', str(charge), '--uhf', str(uhf), 'gfn 2'], 
                        check=True, stdout=log, stderr=log)
         subprocess.run(['cp', 'xtbopt.mol', output_mol_file], check=True)
     return output_mol_file
@@ -97,7 +97,7 @@ def calculate_reorganization_energy(neutral_file, anion_file, cation_file,
 
 def calculate_transfer_integral(xyz_file, charge, uhf, log_file_path):
     result = subprocess.run(
-        ['xtb', xyz_file, '--dipro', '0.3', '--chrg', str(charge), '--uhf', str(uhf), '--spinpol', '--tblite'],
+        ['xtb', xyz_file, '--dipro', '0.3', '--chrg', str(charge), '--uhf', str(uhf)],
         check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
     )
     
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     cation_monomer_uhf = 0
     radical_dimer_charge = 0
     radical_dimer_uhf = 2
-    stack_distance = 6
+    stack_distance = 5
     log_file_path = "output_log.txt"
     
     with open(log_file_path, 'w') as log:

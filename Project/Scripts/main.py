@@ -126,6 +126,22 @@ def calculate_transfer_integral(xyz_file, charge, uhf, log_file_path):
     else:
         return hole_transport, charge_transport
 
+def calculate_rate_and_mobility(J, reorg_energy, log_file_path):
+    h = 4.135667696E-15  # Planck constant in eV·s
+    kT = 0.000086173 * 300  # Thermal energy in eV at 300K
+    distance = 4  # Distance between dimers in nm
+
+    rate = (((J**2) / h) * (1 / (math.sqrt(math.pi * (reorg_energy + 0.3) * kT))) *
+            math.exp(-(reorg_energy + 0.3) / (4 * kT)))
+    
+    mobility = (((1.6E-19) * (distance * 1E-7) ** 2) * rate) / (2 * 300 * kT * 1.6E-19)
+    
+    with open(log_file_path, 'a') as log:
+        log.write(f"Rate: {rate:.6e} s^-1\n")
+        log.write(f"Mobility: {mobility:.6e} cm^2/Vs\n")
+    
+    return rate, mobility
+    
 if __name__ == "__main__":
     input_mol_file = "Base1tBu.mol"
     radical_monomer_charge = 0
@@ -153,9 +169,13 @@ if __name__ == "__main__":
     opt_dimer = optimize_geometry(loose_opt_dimer, 'opt_dimer.mol', radical_dimer_charge, radical_dimer_uhf, log_file_path)
     
     J_hole, J_electron = calculate_transfer_integral(opt_dimer, radical_dimer_charge,radical_dimer_uhf, log_file_path)
-    
+    rate_hole, mobility_hole = calculate_rate_and_mobility(J_hole, reorg_energy_hole, log_file_path)
+    rate_electron, mobility_electron = calculate_rate_and_mobility(J_electron, reorg_energy_electron, log_file_path)
+
+        
     with open(log_file_path, 'a') as log:
-        log.write(f"Reorganization energy (electron): {reorg_energy_electron} eV\n")
-        log.write(f"Reorganization energy (hole): {reorg_energy_hole} eV\n")
+        log.write(f"Stack distance: {stack_distance} Å\n")
         log.write(f"Electron Transfer integral J: {J_electron} eV\n")
         log.write(f"Hole Transfer integral J: {J_hole} eV\n")
+        log.write("Electron Mobility: {mobility_electron}")
+        log.write("Hole Mobility: {mobility_hole}")

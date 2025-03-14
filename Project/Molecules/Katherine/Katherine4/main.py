@@ -140,7 +140,7 @@ if __name__ == "__main__":
     cation_monomer_uhf = 0
     radical_dimer_charge = -2
     radical_dimer_uhf = 0
-    stack_distance = 6
+    stack_distance = 4
     log_file_path = "output_log.txt"
     
     with open(log_file_path, 'w') as log:

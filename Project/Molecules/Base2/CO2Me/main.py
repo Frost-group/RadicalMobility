@@ -140,7 +140,7 @@ if __name__ == "__main__":
     cation_monomer_uhf = 0
     radical_dimer_charge = 0
     radical_dimer_uhf = 2
-    stack_distance = 6
+    stack_distance = 10
     log_file_path = "output_log.txt"
     
     with open(log_file_path, 'w') as log:
@@ -154,9 +154,9 @@ if __name__ == "__main__":
     
     dimer = stack_dimer(opt_radical_monomer, stack_distance, rotation_angle=0)
     loose_opt_dimer = optimize_geometry_gfnff(dimer, 'loose_opt_dimer.mol', radical_dimer_charge, radical_dimer_uhf, log_file_path)
-    opt_dimer = optimize_geometry(loose_opt_dimer, 'opt_dimer.mol', radical_dimer_charge, radical_dimer_uhf, log_file_path)
+    #opt_dimer = optimize_geometry(loose_opt_dimer, 'opt_dimer.mol', radical_dimer_charge, radical_dimer_uhf, log_file_path)
     
-    J_hole, J_electron = calculate_transfer_integral(opt_dimer, radical_dimer_charge,radical_dimer_uhf, log_file_path)
+    J_hole, J_electron = calculate_transfer_integral(loose_opt_dimer, radical_dimer_charge,radical_dimer_uhf, log_file_path)
     
     with open(log_file_path, 'a') as log:
         log.write(f"Reorganization energy (electron): {reorg_energy_electron} eV\n")
