@@ -1,9 +1,0 @@
-$md
-    time=20.0
-    step=2.0
-    dump=500
-temp = 503
-    nvt=true
-    hmass=4
-    shake=0
-$end
